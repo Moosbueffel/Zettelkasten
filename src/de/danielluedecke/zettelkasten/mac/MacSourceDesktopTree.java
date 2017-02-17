@@ -122,7 +122,12 @@ public class MacSourceDesktopTree extends BasicTreeUI {
 
     private Action expandNodeAction() {
         return new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = tree.getLeadSelectionRow();
                 tree.expandRow(selectedRow);
@@ -132,7 +137,12 @@ public class MacSourceDesktopTree extends BasicTreeUI {
 
     private Action collapseNodeAction() {
         return new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = tree.getLeadSelectionRow();
                 tree.collapseRow(selectedRow);
@@ -559,7 +569,12 @@ public class MacSourceDesktopTree extends BasicTreeUI {
     // SourceListTreeSelectionModel implementation. ///////////////////////////////////////////////
     private class SourceListTreeSelectionModel extends DefaultTreeSelectionModel {
 
-        public SourceListTreeSelectionModel() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public SourceListTreeSelectionModel() {
             setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         }
 //

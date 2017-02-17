@@ -62,7 +62,7 @@ public class ImportFromCSV extends org.jdesktop.application.Task<Object, Void> {
      * this data is after being importtet converted to the XML structure
      * of the Daten dataObj
      */
-    private final Document dummyXML;
+    //private final Document dummyXML;
     /**
      * file path to import file
      */
@@ -70,13 +70,13 @@ public class ImportFromCSV extends org.jdesktop.application.Task<Object, Void> {
     /**
      * indicates whether a conversion from ascii to unicode chars is necessary
      */
-    private final boolean atou;
+    //private final boolean atou;
     /**
      * indicates which type of data format should be imported.
      * refer to the Zettelkasten.view properties file (resources) to see
      * which number is which file type.
      */
-    private int importType;
+    //private int importType;
     /**
      * indicates whether the data should be appended to an already opened zettelkasten
      * or whether the old zettelkasten-data-file should be closed (and saved) before and
@@ -135,7 +135,7 @@ public class ImportFromCSV extends org.jdesktop.application.Task<Object, Void> {
         msgLabel = label;
 
         filepath = fp;
-        atou = a2u;
+        // atou = a2u;
         append = appendit;
         defaulttimestamp = dts;
         separatorchar = sepchar.toCharArray()[1];
@@ -145,7 +145,7 @@ public class ImportFromCSV extends org.jdesktop.application.Task<Object, Void> {
         }
         taskinfo.setImportOk(true);
         // initiate the XML file
-        dummyXML = new Document(new Element("zettelkasten"));
+        // dummyXML = new Document(new Element("zettelkasten"));
         // set default import message
         msgLabel.setText(resourceMap.getString("importDlgMsgImport"));
     }
@@ -170,8 +170,9 @@ public class ImportFromCSV extends org.jdesktop.application.Task<Object, Void> {
 
         // return value that indicates that an error occured
         taskinfo.setImportOk(false);
+        CSVReader csvreader = null;
         try {
-            CSVReader csvreader = new CSVReader(new FileReader(filepath), separatorchar, '\"');
+             csvreader = new CSVReader(new FileReader(filepath), separatorchar, '\"');
             List csvEntries = csvreader.readAll();
         } catch (FileNotFoundException ex) {
             // display error message box
@@ -182,7 +183,15 @@ public class ImportFromCSV extends org.jdesktop.application.Task<Object, Void> {
         } catch (IOException ex) {
             Constants.zknlogger.log(Level.SEVERE, ex.getLocalizedMessage());
             return null;
+        } finally {
+        	if(csvreader != null)
+				try {
+					csvreader.close();
+				} catch (IOException e) {
+					Constants.zknlogger.log(Level.SEVERE, e.getLocalizedMessage());
+				}
         }
+        
         // init variables
         Document zkndoc = null;
         // if we don't want to append the data, reset the zettelkastem

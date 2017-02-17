@@ -113,6 +113,10 @@ import org.jdesktop.application.Action;
 public class SearchResultsFrame extends javax.swing.JFrame {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * CDaten object, which contains the XML data of the Zettelkasten
      */
     private final Daten dataObj;
@@ -649,7 +653,12 @@ public class SearchResultsFrame extends javax.swing.JFrame {
         // create action which should be executed when the user presses
         // the enter-key
         AbstractAction a_enter = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 if (jTextFieldFilterList==e.getSource()) filterResultList();
                 if (jTableResults==e.getSource()) displayEntryInMainframe();
             }
@@ -2264,7 +2273,7 @@ public class SearchResultsFrame extends javax.swing.JFrame {
         jSplitPaneSearch1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableResults = (settingsObj.isMacStyle()) ? com.explodingpixels.macwidgets.MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
+        jTableResults = (settingsObj.isMacAqua()) ? com.explodingpixels.macwidgets.MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
         jTextFieldFilterList = new javax.swing.JTextField();
         jButtonResetList = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -2470,7 +2479,11 @@ public class SearchResultsFrame extends javax.swing.JFrame {
                 "Zettel", "Überschrift", "Erstellt", "Geändert", "Bewertung", "Schreibtisch"
             }
         ) {
-            Class[] types = new Class [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {

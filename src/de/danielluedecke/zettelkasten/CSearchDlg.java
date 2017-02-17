@@ -56,6 +56,10 @@ import org.jdesktop.application.Action;
  */
 public class CSearchDlg extends javax.swing.JDialog {    
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * indicates whether the user cancelled the search request or not...
      */
     private boolean cancelled = true;

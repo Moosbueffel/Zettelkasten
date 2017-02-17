@@ -61,7 +61,11 @@ import org.jdesktop.application.Action;
  */
 public class CStenoEdit extends javax.swing.JDialog {
 
-    private final StenoData stenoObj;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final StenoData stenoObj;
     private final Settings settingsObj;
 
     private boolean modified = false;
@@ -203,7 +207,12 @@ public class CStenoEdit extends javax.swing.JDialog {
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_delete = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 // retrieve selected row and column
                 int row = jTableSteno.getSelectedRow();
                 int col = jTableSteno.getSelectedColumn();
@@ -283,7 +292,7 @@ public class CStenoEdit extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableSteno = (settingsObj.isMacStyle()) ? MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
+        jTableSteno = (settingsObj.isMacAqua()) ? MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
         jButtonCancel = new javax.swing.JButton();
         jButtonApply = new javax.swing.JButton();
 
@@ -307,7 +316,11 @@ public class CStenoEdit extends javax.swing.JDialog {
                 "Abkürzung", "Original"
             }
         ) {
-            Class[] types = new Class [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class
             };
 

@@ -1882,7 +1882,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         tb_searchTextfield.setToolTipText(getResourceMap().getString("searchfieldTooltip"));
         // put action to the tables' actionmaps
         tb_searchTextfield.getActionMap().put("EnterKeyPressed", new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 JTextField tf = (JTextField) e.getSource();
                 // create a regular expression, that separates the input at each comma.
@@ -2176,7 +2181,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
      */
     private void initDragDropTransferHandler() {
         jTableLinks.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 return de.danielluedecke.zettelkasten.util.TableUtils.prepareStringForTransferHandler(jTableLinks);
             }
@@ -2196,7 +2206,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
             }
         });
         jTableManLinks.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 return de.danielluedecke.zettelkasten.util.TableUtils.prepareStringForTransferHandler(jTableManLinks);
             }
@@ -2216,7 +2231,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
             }
         });
         jTableBookmarks.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 return de.danielluedecke.zettelkasten.util.TableUtils.prepareStringForTransferHandler(jTableBookmarks);
             }
@@ -2239,7 +2259,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         jTreeLuhmann.setDragEnabled(true);
         // init transfer handler for tree
         jTreeLuhmann.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // retrieve tree-component
                 javax.swing.JTree t = (javax.swing.JTree) c;
@@ -2325,7 +2350,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
             }
         });
         jListEntryKeywords.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // retrieve selections
                 List<String> kws = jListEntryKeywords.getSelectedValuesList();
@@ -2360,7 +2390,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
             }
         });
         jTableKeywords.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // create string builder
                 StringBuilder keywords = new StringBuilder("");
@@ -2384,7 +2419,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
             }
         });
         jTableAttachments.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // create string builder
                 StringBuilder attachments = new StringBuilder("");
@@ -2408,7 +2448,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
             }
         });
         jTableAuthors.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // create string builder
                 StringBuilder authors = new StringBuilder("");
@@ -2530,7 +2575,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the enter-key
         AbstractAction a_enter = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTableAuthors == e.getSource()) {
                     searchLogOr();
@@ -2601,7 +2651,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_delete = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTreeLuhmann == e.getSource()) {
                     deleteLuhmannFromEntry();
@@ -2644,7 +2699,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the ctrl-F10/meta-F10-key
         AbstractAction a_add = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTableAuthors == e.getSource() || jTextFieldFilterAuthors == e.getSource()) {
                     addAuthorToList();
@@ -2671,7 +2731,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the F2/meta-enter-key
         AbstractAction a_edit = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTableAuthors == e.getSource() || jTextFieldFilterAuthors == e.getSource()) {
                     editAuthor();
@@ -2710,7 +2775,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the insert/Meta-Backspace-key
         AbstractAction a_new = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTableAuthors == e.getSource()) {
                     newAuthor();
@@ -2729,7 +2799,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the insert/Meta-Backspace-key
         AbstractAction a_find = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 searchLogOr();
             }
@@ -2744,7 +2819,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // create action which should be executed when the user presses
         // the insert/Meta-Backspace-key
         AbstractAction a_findregex = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextFieldFilterKeywords == e.getSource()) {
                     filterKeywordList(true);
@@ -11505,7 +11585,12 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         jTreeLuhmann = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         jEditorPaneIsFollower = new javax.swing.JEditorPane() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public String getToolTipText(MouseEvent evt) {
                 String text = null;
                 int pos = viewToModel(evt.getPoint());
@@ -12117,7 +12202,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Zettel", "Überschrift", "Relevanz", "Bewertung"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
                 };
                 boolean[] canEdit = new boolean [] {
@@ -12174,7 +12263,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Eintrag", "Überschrift", "Bewertung"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.Integer.class, java.lang.String.class, java.lang.Float.class
                 };
                 boolean[] canEdit = new boolean [] {
@@ -12315,7 +12408,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Schlagwörter", "Häufigkeit"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.String.class, java.lang.Integer.class
                 };
                 boolean[] canEdit = new boolean [] {
@@ -12413,7 +12510,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Autoren", "Häufigkeit"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.String.class, java.lang.Integer.class
                 };
                 boolean[] canEdit = new boolean [] {
@@ -12526,7 +12627,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Zettel", "Überschrift", "Erstellt", "Geändert", "Bewertung", "Folgezettel"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
                 };
                 boolean[] canEdit = new boolean [] {
@@ -12701,7 +12806,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Eintrag", "Kategorie"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.Integer.class, java.lang.String.class
                 };
                 boolean[] canEdit = new boolean [] {
@@ -12778,7 +12887,11 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                     "Anhang", "Typ", "Zettel"
                 }
             ) {
-                Class[] types = new Class [] {
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+				Class[] types = new Class [] {
                     java.lang.String.class, java.lang.String.class, java.lang.Integer.class
                 };
                 boolean[] canEdit = new boolean [] {

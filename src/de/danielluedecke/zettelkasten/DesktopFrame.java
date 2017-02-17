@@ -131,6 +131,10 @@ import org.jdom2.output.XMLOutputter;
 public class DesktopFrame extends javax.swing.JFrame implements WindowListener {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Reference to the main data class.
      */
     private final Daten dataObj;
@@ -717,7 +721,12 @@ public class DesktopFrame extends javax.swing.JFrame implements WindowListener {
      */
     private void initDropPanes(final javax.swing.JTextArea editorpane) {
         editorpane.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 return editorpane.getSelectedText();
             }
@@ -1291,7 +1300,12 @@ public class DesktopFrame extends javax.swing.JFrame implements WindowListener {
         jTreeDesktop.setDragEnabled(true);
         // init transfer handler for tree
         jTreeDesktop.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // retrieve tree-component
                 javax.swing.JTree t = (javax.swing.JTree) c;
@@ -1540,7 +1554,11 @@ public class DesktopFrame extends javax.swing.JFrame implements WindowListener {
      */
     private class MyCommentRenderer extends DefaultTreeCellRenderer {
 
-        Icon commentIcon, luhmannIcon;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		Icon commentIcon, luhmannIcon;
         boolean useMacBackgound;
 
         public MyCommentRenderer(Icon icon, Icon iconLuhmann, boolean bg) {
@@ -2988,7 +3006,8 @@ public class DesktopFrame extends javax.swing.JFrame implements WindowListener {
         export(desktopObj.getCurrentDesktopElement(), (DefaultMutableTreeNode) jTreeDesktop.getModel().getRoot());
     }
 
-    @Action
+    @SuppressWarnings("resource")
+	@Action
     public void importArchivedDesktop() {
         // create document
         Document archive = new Document();

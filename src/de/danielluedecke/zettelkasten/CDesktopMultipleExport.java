@@ -55,6 +55,10 @@ import org.jdesktop.application.Action;
  */
 public class CDesktopMultipleExport extends javax.swing.JDialog {
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * create a variable for a list model. this list model is used for
      * the JList-component which displays the available desktop-names
      */

@@ -126,7 +126,7 @@ public class TestExportToTexTask {
 	 * Helper method to invoke the private method "getConvertedTex"
 	 */
 	private String getConvertedTex(String input) throws Exception {
-		Class c = exportToTexTask.getClass();
+		Class<? extends ExportToTexTask> c = exportToTexTask.getClass();
 
 		Method method = c.getDeclaredMethod("getConvertedTex", String.class);
 		method.setAccessible(true);

@@ -74,7 +74,11 @@ import org.jdesktop.application.Action;
  */
 public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowListener {
 
-    private final Settings settingsObj;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Settings settingsObj;
     private final AutoKorrektur spellObj;
     private final StenoData stenoObj;
     private final AcceleratorKeys accKeys;
@@ -216,7 +220,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_tab = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 if (jTextArea1==e.getSource()) NewEntryFrameUtil.checkSteno(settingsObj,stenoObj,jTextArea1);
             }
         };
@@ -227,7 +236,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         // create action which should be executed when the user presses
         // the ctrl-space-key. this should insert a protected space sign
         AbstractAction a_space = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 if (jTextArea1==e.getSource()) jTextArea1.replaceSelection("&#160;");
             }
         };
@@ -238,7 +252,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         // create action which should be executed when the user presses
         // the ctrl-asterisk-key. this should insert a bullet sign
         AbstractAction a_bullet = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 if (jTextArea1==e.getSource()) jTextArea1.replaceSelection(String.valueOf((char)8226));
             }
         };
@@ -249,7 +268,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         // create action which should be executed when the user presses
         // the ctrl-space-key. this should insert a protected large space sign
         AbstractAction a_largespace = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 if (jTextArea1==e.getSource()) jTextArea1.replaceSelection("&#8195;");
             }
         };
@@ -262,7 +286,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         //
         // undo
         AbstractAction a_undo = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { undoAction(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { undoAction(); }
         };
         jTextArea1.getActionMap().put("UndoKeyPressed",a_undo);
         // check for os, and use appropriate controlKey
@@ -270,7 +299,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "UndoKeyPressed");
         // redo
         AbstractAction a_redo = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { redoAction(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { redoAction(); }
         };
         jTextArea1.getActionMap().put("RedoKeyPressed",a_redo);
         // check for os, and use appropriate controlKey
@@ -278,7 +312,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "RedoKeyPressed");
         // select all
         AbstractAction a_selectall = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { selectAllText(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { selectAllText(); }
         };
         jTextArea1.getActionMap().put("SelectAllKeyPressed",a_selectall);
         // check for os, and use appropriate controlKey
@@ -286,7 +325,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "selectAllKeyPressed");
         // format bold
         AbstractAction a_formatbold = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { formatBold(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { formatBold(); }
         };
         jTextArea1.getActionMap().put("formatBoldKeyPressed",a_formatbold);
         // check for os, and use appropriate controlKey
@@ -294,7 +338,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "formatBoldKeyPressed");
         // format italic
         AbstractAction a_formatitalic = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { formatItalic(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { formatItalic(); }
         };
         jTextArea1.getActionMap().put("formatItalicKeyPressed",a_formatitalic);
         // check for os, and use appropriate controlKey
@@ -302,7 +351,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "formatItalicKeyPressed");
         // format underline
         AbstractAction a_formatunderline = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { formatItalic(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { formatItalic(); }
         };
         jTextArea1.getActionMap().put("formatUnderlineKeyPressed",a_formatunderline);
         // check for os, and use appropriate controlKey
@@ -310,7 +364,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "formatUnderlineKeyPressed");
         // format strike
         AbstractAction a_formatstrike = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { formatStrikeThrough(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { formatStrikeThrough(); }
         };
         jTextArea1.getActionMap().put("formatStrikeThroughKeyPressed",a_formatstrike);
         // check for os, and use appropriate controlKey
@@ -318,7 +377,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "formatStrikeThroughKeyPressed");
         // format cite
         AbstractAction a_formatcite = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { formatCite(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { formatCite(); }
         };
         jTextArea1.getActionMap().put("formatCiteKeyPressed",a_formatcite);
         // check for os, and use appropriate controlKey
@@ -326,7 +390,12 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
         jTextArea1.getInputMap().put(ks, "formatCiteKeyPressed");
         // format color
         AbstractAction a_formatcolor = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) { formatColor(); }
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) { formatColor(); }
         };
         jTextArea1.getActionMap().put("formatColorKeyPressed",a_formatcolor);
         // check for os, and use appropriate controlKey
@@ -1060,7 +1129,7 @@ public class CModifyDesktopEntry extends javax.swing.JFrame implements WindowLis
      * WARNING: Do NOT modify this code. The content of this method is
      * always regenerated by the Form Editor.
      */
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

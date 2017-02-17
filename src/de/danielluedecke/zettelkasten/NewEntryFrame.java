@@ -137,6 +137,10 @@ import org.jdom2.Element;
 public class NewEntryFrame extends javax.swing.JFrame implements WindowListener, DropTargetListener {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * create a variable for a list model. this list model is used for the
      * JList-component which displays the keywords of the current entry.
      */
@@ -515,7 +519,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
 
     private void initDragDropTransferHandler() {
         jListKeywords.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // retrieve selections
                 List<String> kws = jListKeywords.getSelectedValuesList();
@@ -567,7 +576,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
             }
         });
         jListQuickInputKeywords.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // retrieve selected keyword-values
                 List<String> kws = jListQuickInputKeywords.getSelectedValuesList();
@@ -599,7 +613,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
             }
         });
         jListQuickInputAuthor.setTransferHandler(new EntryStringTransferHandler() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected String exportString(JComponent c) {
                 // retrieve selected keyword-values
                 List<String> aus = jListQuickInputAuthor.getSelectedValuesList();
@@ -1590,7 +1609,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the enter-key
         AbstractAction a_enter = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jListQuickInputAuthor == e.getSource()) {
                     addQuickAuthorToList();
@@ -1625,7 +1649,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_delete = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jListKeywords == e.getSource()) {
                     removeKeywordFromList();
@@ -1643,7 +1672,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_tab = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextAreaEntry == e.getSource()) {
                     NewEntryFrameUtil.checkSteno(settingsObj, stenoObj, jTextAreaEntry);
@@ -1667,7 +1701,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the ctrl-space-key. this should insert a protected space sign
         AbstractAction a_space = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextAreaEntry == e.getSource()) {
                     jTextAreaEntry.replaceSelection("&#160;");
@@ -1686,7 +1725,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the ctrl-asterisk-key. this should insert a bullet sign
         AbstractAction a_bullet = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextAreaEntry == e.getSource()) {
                     jTextAreaEntry.replaceSelection(String.valueOf((char) 8226));
@@ -1705,7 +1749,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the ctrl-space-key. this should insert a protected large space sign
         AbstractAction a_largespace = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextAreaEntry == e.getSource()) {
                     jTextAreaEntry.replaceSelection("&#8195;");
@@ -1724,7 +1773,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
         // create action which should be executed when the user presses
         // the ctrl-F10/meta-F10-key
         AbstractAction a_add = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextFieldFilterKeywordlist == e.getSource()) {
                     addQuickKeywordToList();
@@ -3088,7 +3142,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
 
     public class TableContentPane extends JPanel {
 
-        public TableContentPane() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public TableContentPane() {
             super(new GridLayout(1, 0));
             // create empty table header
             String[] headers = new String[16];
@@ -3097,7 +3156,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
             }
             // create tablemodel for the table data, which is not editable
             final DefaultTableModel model = new DefaultTableModel(headers, 0) {
-                @Override
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+				@Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
                 }
@@ -3264,7 +3328,12 @@ public class NewEntryFrame extends javax.swing.JFrame implements WindowListener,
             // the enter-key does not select a new cell, so another symbol than the intended one
             // is inserted
             AbstractAction a_enter = new AbstractAction() {
-                @Override
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+				@Override
                 public void actionPerformed(ActionEvent e) {
                     String sign = table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString();
                     // look for the component which has the focus and paste clipboard into it

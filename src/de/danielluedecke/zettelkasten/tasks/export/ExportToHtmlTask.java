@@ -199,7 +199,8 @@ public class ExportToHtmlTask extends org.jdesktop.application.Task<Object, Void
         msgLabel.setText(resourceMap.getString("msg1"));
     }
 
-    @Override
+    @SuppressWarnings("resource")
+	@Override
     protected Object doInBackground() {
         // Your Task's code here.  This method runs
         // on a background thread, so don't reference

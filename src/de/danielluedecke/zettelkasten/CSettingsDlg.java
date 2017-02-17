@@ -73,6 +73,10 @@ import org.jdesktop.application.Action;
 public class CSettingsDlg extends javax.swing.JDialog {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Reference to the settings-class
      */
     private final Settings settings;
@@ -1246,7 +1250,7 @@ public class CSettingsDlg extends javax.swing.JDialog {
         }
         return false;
     }
-
+  
     private void registerFileExtension() {
         try {
             Regor winreg = new Regor();
@@ -1259,7 +1263,7 @@ public class CSettingsDlg extends javax.swing.JDialog {
 
                 }
                 if (regkey != null) {
-                    winreg.setValue(regkey, "", "zkn3_auto_file");
+                    winreg.saveValue(regkey, "", "zkn3_auto_file");
                     winreg.closeKey(regkey);
                     regkey = winreg.openKey(Regor.HKEY_CLASSES_ROOT, "zkn3_auto_file\\shell\\Open\\command");
                     if (null == regkey) {
@@ -1268,7 +1272,7 @@ public class CSettingsDlg extends javax.swing.JDialog {
                         regkey = winreg.openKey(Regor.HKEY_CLASSES_ROOT, "zkn3_auto_file\\shell\\Open\\command");
                     }
                     if (regkey != null) {
-                        winreg.setValue(regkey, "", "\"" + System.getProperty("java.class.path") + "\" \"%1\"");
+                        winreg.saveValue(regkey, "", "\"" + System.getProperty("java.class.path") + "\" \"%1\"");
                         winreg.closeKey(regkey);
                     }
                 }

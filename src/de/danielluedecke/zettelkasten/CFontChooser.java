@@ -56,6 +56,10 @@ import org.jdesktop.application.Action;
 public class CFontChooser extends javax.swing.JDialog {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * This variable stores the font-selection of the user. we pass the current used
      * font as parameter, and store the changes in this variable.
      */

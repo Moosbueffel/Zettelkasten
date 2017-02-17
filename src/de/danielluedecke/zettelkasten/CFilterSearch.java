@@ -60,6 +60,10 @@ import org.jdesktop.application.Action;
 public class CFilterSearch extends javax.swing.JDialog {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * create a variable for a list model. this list model is used for
      * the JList-component which displays the search terms which should be filtered
      */
@@ -170,7 +174,12 @@ public class CFilterSearch extends javax.swing.JDialog {
         // create action which should be executed when the user presses
         // the enter-key
         AbstractAction a_enter = new AbstractAction(){
-            @Override public void actionPerformed(ActionEvent e) {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override public void actionPerformed(ActionEvent e) {
                 filterList();
             }
         };

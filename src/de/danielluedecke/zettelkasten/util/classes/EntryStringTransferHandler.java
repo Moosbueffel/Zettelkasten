@@ -49,7 +49,12 @@ import javax.swing.TransferHandler;
  */
 public abstract class EntryStringTransferHandler extends TransferHandler {
 
-    protected abstract String exportString(JComponent c);
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected abstract String exportString(JComponent c);
     protected abstract boolean importString(JComponent c, String str);
     protected abstract void cleanup(JComponent c, boolean remove);
 

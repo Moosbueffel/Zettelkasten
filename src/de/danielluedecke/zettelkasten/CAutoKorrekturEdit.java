@@ -61,6 +61,10 @@ import org.jdesktop.application.Action;
 public class CAutoKorrekturEdit extends javax.swing.JDialog {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * A reference to the auto-correction class
      */
     private final AutoKorrektur autoKorrekt;
@@ -204,7 +208,12 @@ public class CAutoKorrekturEdit extends javax.swing.JDialog {
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_delete = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 // retrieve selected row and column
                 int row = jTableAutoKorrektur.getSelectedRow();
@@ -294,7 +303,7 @@ public class CAutoKorrekturEdit extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAutoKorrektur = (settingsObj.isMacStyle()) ? MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
+        jTableAutoKorrektur = (settingsObj.isMacAqua()) ? MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
         jButtonCancel = new javax.swing.JButton();
         jButtonApply = new javax.swing.JButton();
 
@@ -318,7 +327,11 @@ public class CAutoKorrekturEdit extends javax.swing.JDialog {
                 "Falsch", "Richtig"
             }
         ) {
-            Class[] types = new Class [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class
             };
 

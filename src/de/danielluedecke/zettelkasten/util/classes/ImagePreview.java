@@ -59,7 +59,11 @@ import javax.swing.JFileChooser;
  */
 @SuppressWarnings("LeakingThisInConstructor")
 public class ImagePreview extends JComponent implements PropertyChangeListener {
-    ImageIcon thumbnail = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	ImageIcon thumbnail = null;
     File file = null;
 
     public ImagePreview(JFileChooser fc) {

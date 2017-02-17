@@ -54,6 +54,10 @@ import org.jdesktop.application.Action;
 public class CNewBookmark extends javax.swing.JDialog {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * Reference to the bookmarks-class
      */
     private final Bookmarks bookmarksObj;

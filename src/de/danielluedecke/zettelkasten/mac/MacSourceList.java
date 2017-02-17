@@ -60,7 +60,12 @@ public class MacSourceList {
      */
     public static class SourceList extends JList {
 
-        public SourceList() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public SourceList() {
             // make the component non-opaque so that we can paint the background in
             // paintComponent.
             setOpaque(false);
@@ -83,7 +88,11 @@ public class MacSourceList {
     public static class CustomListCellRenderer extends JPanel
         implements ListCellRenderer {
 
-        private final ListCellRenderer fDelegate;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		private final ListCellRenderer fDelegate;
         private boolean fIsSelected;
         private boolean fIsFocused;
 

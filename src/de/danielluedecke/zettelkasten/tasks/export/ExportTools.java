@@ -243,7 +243,8 @@ public class ExportTools {
      * @param filepath
      * @return
      */
-    public static boolean writeExportData(String exportDataString, File filepath) {
+    @SuppressWarnings("resource")
+	public static boolean writeExportData(String exportDataString, File filepath) {
         // yet everything is ok...
         boolean exportOk = true;
         // create filewriter

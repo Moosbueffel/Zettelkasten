@@ -19,7 +19,11 @@ import javax.swing.table.TableCellRenderer;
  */
 public class TitleTableCellRenderer extends JLabel implements TableCellRenderer {
     
-    // column which contains icons instead of text
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// column which contains icons instead of text
     private final JLabel iconLabelParentLuhmann;
     private final JLabel iconLabelLastLuhmann;
     private final JLabel iconLabelMiddleLuhmann;

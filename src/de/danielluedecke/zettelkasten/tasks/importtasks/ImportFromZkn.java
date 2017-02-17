@@ -116,7 +116,7 @@ public class ImportFromZkn extends org.jdesktop.application.Task<Object, Void> {
      * refer to the Zettelkasten.view properties file (resources) to see
      * which number is which file type.
      */
-    private int importType;
+    //private int importType;
     /**
      * indicates whether the data should be appended to an already opened zettelkasten
      * or whether the old zettelkasten-data-file should be closed (and saved) before and

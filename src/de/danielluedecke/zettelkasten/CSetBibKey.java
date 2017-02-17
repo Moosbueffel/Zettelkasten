@@ -73,7 +73,11 @@ import org.jdesktop.application.Action;
  */
 public class CSetBibKey extends javax.swing.JDialog {
 
-    private BibTex bibtexObj;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private BibTex bibtexObj;
     private Settings settingsObj;
     private Daten dataObj;
 
@@ -343,7 +347,12 @@ public class CSetBibKey extends javax.swing.JDialog {
         // create action which should be executed when the user presses
         // the enter-key
         AbstractAction a_enter = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextFieldFilterTable == e.getSource()) {
                     filterList(false);
@@ -358,7 +367,12 @@ public class CSetBibKey extends javax.swing.JDialog {
         // create action which should be executed when the user presses
         // the alt+enter-key (reg ex filter)
         AbstractAction a_regex_enter = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTextFieldFilterTable == e.getSource()) {
                     filterList(true);
@@ -373,7 +387,12 @@ public class CSetBibKey extends javax.swing.JDialog {
         // create action which should be executed when the user presses
         // the delete/backspace-key
         AbstractAction a_delete = new AbstractAction() {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void actionPerformed(ActionEvent e) {
                 if (jTablePreview == e.getSource()) {
                     deleteBibtexEntry();
@@ -703,7 +722,7 @@ public class CSetBibKey extends javax.swing.JDialog {
         jButtonCancel = new javax.swing.JButton();
         jButtonApply = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTablePreview = (settingsObj.isMacStyle()) ? MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
+        jTablePreview = (settingsObj.isMacAqua()) ? MacWidgetFactory.createITunesTable(null) : new javax.swing.JTable();
         jLabelTitle = new javax.swing.JLabel();
         jButtonRefreshView = new javax.swing.JButton();
         jTextFieldFilterTable = new javax.swing.JTextField();
@@ -754,7 +773,11 @@ public class CSetBibKey extends javax.swing.JDialog {
                 "Bibkey", "Eintrag"
             }
         ) {
-            Class[] types = new Class [] {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
