@@ -43,15 +43,20 @@ import de.danielluedecke.zettelkasten.database.SearchRequests;
 import de.danielluedecke.zettelkasten.database.Settings;
 import de.danielluedecke.zettelkasten.tasks.TaskProgressDialog;
 import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -645,4 +650,62 @@ public class ZettelkastenViewUtil {
         }
         return value;
     }
+    
+    
+    /**
+     * Setting default Fontsize for all Elements with given name.
+     * @param componentName FontName to set new default size
+     * @param size New fontSize
+     * @author Schorsch
+     */
+	public static void setDefaultFontsize(String componentName, int size) {
+		if (componentName != null) {
+			componentName = componentName.toLowerCase();
+			Set<Object> keySet = UIManager.getLookAndFeelDefaults().keySet();
+			Object[] keys = keySet.toArray(new Object[keySet.size()]);
+			UIDefaults UIdefaults = UIManager.getDefaults();
+			
+			for (Object key : keys) {
+				if (key != null && key.toString().toLowerCase().contains(componentName)) {
+					Font font = UIdefaults.getFont(key);
+					if (font != null) {
+						if (size == 0) {
+							size = calculateFontSize(componentName);
+						}
+						font = font.deriveFont((float)size);
+						UIManager.put(key, font);
+						Constants.zknlogger.log(Level.INFO, String.format("Fontsize of %s calculated to %s", componentName, size));
+					}
+				}
+			}
+		}
+	}
+    	
+    	/**
+    	 * Calculate fontSize depending on ScreenResolution. If fontName isn't found, than 
+    	 * a default fontSize of <code>12</code> is returned.
+    	 * @param fontName	Name of the font to calculate size.
+    	 * @return Calculated size.
+    	 * @author Schorsch
+    	 */
+    	private static int calculateFontSize(String fontName) {
+	        double factor = Toolkit.getDefaultToolkit().getScreenResolution() / 96f;
+	        Set<Object> keySet = UIManager.getLookAndFeelDefaults().keySet();
+	        Object[] keys = keySet.toArray(new Object[keySet.size()]);
+	        
+	        for (Object key : keys) {
+	        	UIDefaults UIdefaults = UIManager.getDefaults();
+	            if (key != null && key.toString().toLowerCase().contains(fontName.toLowerCase())) {                
+					Font font = UIdefaults.getFont(key);
+	                if (font != null) {
+	                    //int newSize = (int) Math.ceil(font.getSize()*(float)factor);
+	                	int newSize = (int) Math.ceil(factor)*font.getSize();
+	                    return newSize;
+	                }
+	            }
+	        }
+	        
+	        return 20;
+   		}
 }
+

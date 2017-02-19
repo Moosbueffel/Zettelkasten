@@ -133,6 +133,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.FileHandler;
@@ -155,6 +156,7 @@ import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowSorter;
+import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.MatteBorder;
@@ -2524,7 +2526,7 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
     }
 
     /**
-     * This method sets the default font-size for tables, lists and treeviews.
+     * This method sets the default font-size for tables, lists, textFields and treeviews.
      * If the user wants to have bigger font-sizes for better viewing, the new
      * font-size will be applied to the components here.
      */
@@ -2536,7 +2538,7 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         // retrieve default listvewfont
         Font defaultfont = settings.getTableFont();
         // create new font, add fontsize-value
-        Font f = new Font(defaultfont.getName(), defaultfont.getStyle(), fsize + defaultsize);
+        Font f = new Font(defaultfont.getName(), defaultfont.getStyle(), fsize + defaultsize);	// QUEST why size from setting + currentSize 
         // set new font
         jTableLinks.setFont(f);
         jTableManLinks.setFont(f);
@@ -2549,6 +2551,8 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         jTreeLuhmann.setFont(f);
         jTreeCluster.setFont(f);
         jTreeKeywords.setFont(f);
+        //ZettelkastenViewUtil.setDefaultFontsize("TextField.font", settings.getTextfieldFontSize()); // is default 16!?
+        ZettelkastenViewUtil.setDefaultFontsize("TextArea.font", settings.getTextfieldFontSize());
     }
 
     /**
@@ -2956,12 +2960,17 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
                 }
             } catch (HeadlessException e) {
             }            
-            // UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+            
+            // Set defined lookAndFeel
             String laf = settings.getLookAndFeel();
             if (laf.equals(Constants.seaGlassLookAndFeelClassName)) {
                 laf = "com.seaglasslookandfeel.SeaGlassLookAndFeel";
             }
             UIManager.setLookAndFeel(laf);
+            
+            // Adjust FontSize for higher DPI-Monitor
+            //setDefaultSize();
+            
             // log info
             Constants.zknlogger.log(Level.INFO, "Using following LaF: {0}", settings.getLookAndFeel());
             // when we have mac os with aqua look and feel, set menubar to main-menubar at top of screen
@@ -2981,6 +2990,34 @@ public class ZettelkastenView extends FrameView implements WindowListener, DropT
         }
     }
 
+    /**
+     * Setting default Fontsize for all Fonts, calculating a factor depending on the screen resolution.
+     * Not used, because font will be too big, because its perhaps based on previous user settings.
+     */
+    private static void setDefaultFontSize() {
+        double factor = Toolkit.getDefaultToolkit().getScreenResolution() / 96f;
+        System.out.println(factor);
+        
+        Set<Object> keySet = UIManager.getLookAndFeelDefaults().keySet();
+        Object[] keys = keySet.toArray(new Object[keySet.size()]);
+        for (Object key : keys) {
+
+        	UIDefaults UIdefaults = UIManager.getDefaults();
+            if (key != null && key.toString().toLowerCase().contains("font")) {                
+				Font font = UIdefaults.getFont(key);
+                if (font != null) {
+                    float newSize = (float) Math.floor(font.getSize()*(float)factor);
+					font = font.deriveFont(newSize);
+                    UIManager.put(key, font);
+                    System.out.println(key+"\t"+newSize);
+                }
+
+            }
+
+        }
+
+    }
+    
     /**
      * This methods updates the display, i.e. the content of the textfields, the
      * availability of toolbar icons and menu item

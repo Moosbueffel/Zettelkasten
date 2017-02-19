@@ -44,6 +44,7 @@ import de.danielluedecke.zettelkasten.util.PlatformUtil;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -52,6 +53,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -60,6 +62,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
+import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
@@ -645,7 +648,7 @@ public class Settings {
         // on older windows arial
         if (System.getProperty("os.name").startsWith("Windows")) {
             font = "Arial";
-            // on new windows Calibri
+            // on new windows Calibri TODO WIN10!?
             if (System.getProperty("os.name").startsWith("Windows 7") || System.getProperty("os.name").startsWith("Windows 8")) {
                 font = "Calibri";
             }
@@ -754,7 +757,7 @@ public class Settings {
         genericElementInit(SETTING_IMGRESIZEHEIGHT, "400");
         genericElementInit(SETTING_TABLEFONTSIZE, "0");
         genericElementInit(SETTING_DESKTOPOUTLINEFONTSIZE, "0");
-        genericElementInit(SETTING_TEXTFIELDFONTSIZE, "0");
+        genericElementInit(SETTING_TEXTFIELDFONTSIZE, "12");	// gekr 
         genericElementInit(SETTING_LASTUSEDSETBIBKEYCHOICE, String.valueOf(CSetBibKey.CHOOSE_BIBKEY_MANUAL));
         genericElementInit(SETTING_LASTUSEDSETBIBKEYTYPE, String.valueOf(CSetBibKey.CHOOSE_BIBKEY_MANUAL));
         genericElementInit(SETTING_LASTUSEDSETBIBIMPORTSOURCE, String.valueOf(CImportBibTex.BIBTEX_SOURCE_DB));
@@ -866,7 +869,7 @@ public class Settings {
             Element el = new Element(SETTING_CODEFONT);
             settingsFile.getRootElement().addContent(el);
             el.setText(font);
-            el.setAttribute("size", "11");
+            el.setAttribute("size", "10");
             el.setAttribute("style", "normal");
             el.setAttribute("weight", "normal");
             el.setAttribute("color", "333333");
@@ -877,7 +880,7 @@ public class Settings {
             Element el = new Element(SETTING_REMARKSFONT);
             settingsFile.getRootElement().addContent(el);
             el.setText(font);
-            el.setAttribute("size", "10");
+            el.setAttribute("size", "12");
             el.setAttribute("style", "normal");
             el.setAttribute("weight", "normal");
             el.setAttribute("color", "333333");
@@ -3250,6 +3253,10 @@ public class Settings {
         }
         el.setText(String.valueOf(size));
     }
+    
+
+    
+
 
     public int getLastUsedSetBibyKeyChoice() {
         Element el = settingsFile.getRootElement().getChild(SETTING_LASTUSEDSETBIBKEYCHOICE);
